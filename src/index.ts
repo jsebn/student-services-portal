@@ -90,6 +90,25 @@ const invalidStudentMissingName: unknown = {
   status: "inactive",
 };
 
+// Part 18: Student Status Formatter Implementation
+type StudentStatus = "active" | "inactive";
+
+function getStudentStatusLabel(status: StudentStatus | unknown): string {
+  if (status === "active") {
+    return "Active Student";
+  }
+  if (status === "inactive") {
+    return "Inactive Student";
+  }
+  return "Unknown Status";
+}
+
+// Part 19: Test the Feature
+console.log("\n--- Testing Student Status Formatter ---");
+console.log("active ->", getStudentStatusLabel("active")); // Output: Active Student
+console.log("inactive ->", getStudentStatusLabel("inactive")); // Output: Inactive Student
+console.log("invalid ->", getStudentStatusLabel("suspended")); // Output: Unknown Status
+
 console.log("\n--- Runtime Validation Tests ---");
 console.log("Valid Student:", isStudent(validStudent)); // Expected: true
 console.log("Invalid ID:", isStudent(invalidStudentBadId)); // Expected: false
